@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tất cả sản pẩm</title>
+
+    <!--    fontawesome custome link-->
+    <link th:fragment="limk-fontawesome" rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}">
+
+    <link th:fragment="link-globalCSS" rel="stylesheet" th:href="@{/CSS/Global.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/CSS/layout-client.css}">
+    <link th:fragment="link-product" rel="stylesheet" th:href="@{/CSS/product.css}">
+</head>
+<body>
+<th:block th:replace="Layout :: header-layout-nav"></th:block>
+
+<section class="list-product">
+    <div class="wrap-title">
+        <div class="title"></div>
+        <span>Tất cả sản phẩm</span>
+    </div>
+
+    <div class="list-container">
+        <div th:each="product : ${products}" class="box">
+            <div class="image-product">
+                <img th:src="@{'data:image/png;base64,' + ${product.imgProduct}}" alt="">
+                <div class="detail-control">
+                    <a th:href="@{/products/detail/{id}(id=${product.id})}">Xem thông tin</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="name-product" th:text="${product.title}"></h3>
+                <span class="price" th:text="${product.price}">đ</span>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

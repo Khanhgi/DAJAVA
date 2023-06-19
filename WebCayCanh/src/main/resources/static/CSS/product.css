@@ -1,0 +1,66 @@
+.list-product .list-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    gap: 1.5rem;
+}
+
+.list-product .list-container .box{
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.list-product .list-container .box .image-product{
+    position: relative;
+    max-width: 25rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.list-product .list-container .box .image-product img{
+    width: 100%;
+}
+
+.list-product .list-container .box .image-product .detail-control {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 5rem;
+}
+
+.list-product .list-container .box .image-product .detail-control a {
+    font-size: 1rem;
+    color: #333;
+}
+
+.list-product .list-container .box:hover .image-product .detail-control {
+    bottom: 20%;
+}
+
+.list-product .list-container .box .image-product .detail-control:hover {
+    background: #e3a664;
+}
+
+.list-product .list-container .box .image-product .detail-control:hover a{
+    color: #fff;
+}
+
+.list-product .list-container .box .content {
+    margin-top: 1rem;
+}
+
+.list-product .list-container .box .content .name-product{
+    font-size: 1.6rem;
+    font-weight: 450;
+}
+
+.list-product .list-container .box .content .price{
+    font-size: 1.5rem;
+    color: #d78346;
+}
+
+
+

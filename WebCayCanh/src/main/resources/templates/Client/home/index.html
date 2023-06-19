@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <!--    fontawesome custome link-->
+    <link th:fragment="limk-fontawesome" rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}">
+
+    <link th:fragment="link-global" rel="stylesheet" th:href="@{CSS/Global.css}">
+    <link th:fragment="link-index" rel="stylesheet" th:href="@{CSS/index.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/CSS/layout-client.css}">
+</head>
+<body>
+    <th:block th:replace="~{Layout :: header-layout-nav}"></th:block>
+
+    <div class="home-container">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+                          centered-slides="true" autoplay-delay="4500" autoplay-disable-on-interaction="false">
+            <swiper-slide>
+                <img th:src="@{/images/slide2.jpg}" height="960" width="1920"/>
+
+                <div class="content">
+                    <div class="wrap-title">
+                        <div class="title"></div>
+                        <span>Bây giờ, bạn không cần phải bận tâm suy nghĩ về thiết kế.</span>
+                    </div>
+
+                    <h2 class="title-big">Chúng tôi có thể tạo ra môi trường. Ngoài sức tưởng tượng của bạn !</h2>
+
+                    <a href="" class="btn">Xem ngay</a>
+                </div>
+            </swiper-slide>
+
+            <swiper-slide>
+                <img th:src="@{/images/slide1.jpg}" height="960" width="1920"/>
+
+                <div class="content">
+                    <div class="wrap-title">
+                        <div class="title"></div>
+                        <span>Bây giờ, bạn không cần phải bận tâm suy nghĩ về thiết kế.</span>
+                    </div>
+
+                    <h2 class="title-big">Thiết kế khu vườn theo sở thích trong chính ngôi nhà của bạn !</h2>
+
+                    <a href="" class="btn">Xem ngay</a>
+                </div>
+            </swiper-slide>
+
+            <swiper-slide>
+                <img th:src="@{/images/slide4.png}" height="960" width="1920"/>
+                <div class="content">
+                    <div class="wrap-title">
+                        <div class="title"></div>
+                        <span>Bây giờ, bạn không cần phải bận tâm suy nghĩ về thiết kế.</span>
+                    </div>
+
+                    <h2 class="title-big">Mang đến trải nghiệm không gian sống, qua từng bức ảnh cây cảnh !</h2>
+
+                    <a href="" class="btn">Xem ngay</a>
+                </div>
+            </swiper-slide>
+
+        </swiper-container>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<style>
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 10%;
+        background: rgb(13, 35, 41);
+        z-index: 9999 !important;
+    }
+    .header-layout-nav .logo {
+        max-width: 100px;
+    }
+
+    .header-layout-nav .header-nav a{
+        margin: 0 2rem;
+        color: #fff;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+    .header-layout-nav .icons div{
+        font-size: 1.9rem;
+        padding: 1.5rem;
+        margin-right: .5rem;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+    <header th:fragment="header-layout-nav" class="header-layout-nav">
+
+        <a href="#" class="logo">
+            <img th:src="@{/images/logo-page.png}" style="max-width: 100px" width="100%"/>
+        </a>
+
+        <nav class="header-nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/products/list">Products</a>
+            <a href="/home/contacts">Contacts</a>
+        </nav>
+
+        <div class="icons">
+            <div id="btn-account" class="fa-solid fa-user">
+                <div class="select-container">
+                    <a href="">Đăng nhập</a>
+                    <a href="">Đăng ký</a>
+                </div>
+            </div>
+            <div id="btn-cart" class="fa-solid fa-cart-shopping">
+                <span class="total">0</span>
+            </div>
+        </div>
+    </header>
+
+<script>
+    let btnShowSelect = document.getElementById('btn-account');
+    let selectMenu = document.querySelector('.select-container');
+
+    btnShowSelect.addEventListener('click', showSelect);
+
+    function showSelect() {
+        selectMenu.classList.toggle('active');
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tất cả sản pẩm</title>
+
+    <!--    fontawesome custome link-->
+    <link th:fragment="limk-fontawesome" rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}">
+
+    <link th:fragment="link-globalCSS" rel="stylesheet" th:href="@{/CSS/Global.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/CSS/layout-client.css}">
+    <link th:fragment="link-detail" rel="stylesheet" th:href="@{/CSS/detail.css}">
+</head>
+<body>
+<th:block th:replace="Layout :: header-layout-nav"></th:block>
+
+    <section class="detail-product">
+        <div class="wrap-title">
+            <div class="title"></div>
+            <span>Thông tin sản phẩm</span>
+        </div>
+
+        <div class="detail-container">
+
+                <div class="image-product">
+                    <img th:src="@{'data:image/png;base64,' + ${product.imgProduct}}" alt="">
+
+                </div>
+
+                <div class="content">
+                    <h3 class="name-product" th:text="${product.title}"></h3>
+                    <div class="price">
+                        Giá:
+                        <span th:text="${product.price}">đ</span>
+                    </div>
+
+                    <div class="total-current">
+                        Số lượng:
+                        <span  th:text="${product.totalProduct}"></span>
+                    </div>
+
+                    <div class="describe">
+                        Mô tả:
+                        <p  th:text="${product.description}"></p>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-bag-shopping" style="margin-right: .7rem"></i>
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+        </div>
+    </section>
+</body>
+</html>

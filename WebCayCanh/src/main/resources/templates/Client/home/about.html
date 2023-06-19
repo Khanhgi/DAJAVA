@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <!--    fontawesome custome link-->
+    <link th:fragment="limk-fontawesome" rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}">
+
+    <link th:fragment="link-global" rel="stylesheet" th:href="@{CSS/Global.css}">
+    <link th:fragment="link-about" rel="stylesheet" th:href="@{CSS/index.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/CSS/layout-client.css}">
+</head>
+<body>
+<th:block th:replace="Layout :: header-layout-nav"></th:block>
+
+    <section class="about">
+        <div class="wrap-title">
+            <div class="title"> </div>
+            <span>About us</span>
+        </div>
+
+    </section>
+</body>
+</html>

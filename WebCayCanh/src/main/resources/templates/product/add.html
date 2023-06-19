@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link th:fragment="link-globalCSS" rel="stylesheet" th:href="@{/CSS/Global.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/CSS/layout-client.css}">
+    <link th:fragment="link-bottstrap" rel="stylesheet" th:href="@{/CSS/product.css}">
+</head>
+<body>
+<th:block th:replace="Layout :: header-layout-nav"></th:block>
+
+<section class="add-product">
+    <div class="wrap-title">
+        <div class="title"> </div>
+        <span>Thêm sản phẩm</span>
+    </div>
+
+    <form th:action="@{/products/add} " th:object="${product}" method="post" enctype="multipart/form-data">
+        <div class="col-6 mb-3">
+            <label for="title" class="form-label">Ảnh sản phẩm:</label>
+            <input type="file" class="form-control" th:field="*{imgProduct}" id="imgProduct" >
+        </div>
+
+        <div class="box-input">
+            <label for="title" class="form-label">Tên sản phẩm:</label>
+            <input type="text" class="form-control" th:field="*{title}" id="title">
+            <span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+        </div>
+
+        <div class="box-input">
+            <label for="title" class="form-label">Giá:</label>
+            <input type="text" class="form-control" th:field="*{price}" id="price" >
+            <span class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+        </div>
+        <div class="box-input">
+            <label for="title" class="form-label">Loại:</label>
+            <select class="form-control" id="category" name="category.id">
+                <option value="">-- Chọn loại sản phẩm --</option>
+                <option th:each="category :${categories}" th:value="${category.id}"
+                        th:text="${category.name}"></option>
+            </select>
+            <span class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
+        </div>
+
+        <div class="box-input">
+            <label for="title" class="form-label">Số lượng:</label>
+            <input type="text" class="form-control" th:field="*{totalProduct}" id="total_product" >
+            <span class="text-danger" th:if="${#fields.hasErrors('totalProduct')}" th:errors="*{totalProduct}"></span>
+        </div>
+
+        <div class="box-input">
+            <label for="title" class="form-label">Mô tả sản phẩm:</label>
+            <span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            <textarea type="text" class="form-control" th:field="*{description}" id="description">
+            </textarea>
+
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+
+</section>
+</body>
+</html>
